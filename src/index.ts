@@ -1,9 +1,10 @@
-import express, { Express } from 'express';
-import cors from 'cors';
-import { AddressInfo } from 'net';
-import { criarEstudante } from './endpoints/estudante/criarEstudante';
-import { buscarEstudante } from './endpoints/estudante/buscar.Estudante';
-import { mudarTurma } from './endpoints/estudante/mudarTurma';
+import express, { Express } from "express";
+import cors from "cors";
+import { AddressInfo } from "net";
+import { criarEstudante } from "./endpoints/estudante/criarEstudante";
+import { buscarEstudante } from "./endpoints/estudante/buscar.Estudante";
+import { mudarTurma } from "./endpoints/estudante/mudarTurma";
+import { criarTurma } from "./endpoints/turma/criarTurma";
 
 const app: Express = express();
 
@@ -20,6 +21,11 @@ const server = app.listen(process.env.PORT || 3003, () => {
 });
 
 // Endpoints da tabela 'Estudante'
-app.post('/studant', criarEstudante);
-app.get('/studant', buscarEstudante);
-app.put('/studant', mudarTurma);
+app.post("/studant", criarEstudante);
+app.get("/studant", buscarEstudante);
+app.put("/studant", mudarTurma);
+
+//Endpoints da tabela 'Turma'
+app.post("/turmas", criarTurma);
+//app.get("/turmas", buscarTurma);
+// app.put('/turmas',mudarModulo)
